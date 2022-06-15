@@ -1,0 +1,329 @@
+
+//Media Queries za ekrane ispod 600px
+/*
+*************************************************
+* Media Query max-width: 600px
+*************************************************
+*/
+@media screen and (max-width: 600px) {
+
+    
+    //ABOUT 
+    .about-container{
+        grid-template-columns: 1fr;
+        .right-about{
+            grid-template-columns: 1fr;
+            padding: 2rem 2.5rem;
+        }
+        .left-about{
+            //Uklanjanje desnog padinga radi centriranja. Kod leve sekcije to je uobicajeno ali pri
+            //smanjenju broja kolona smeta (kad idu jedna ispod druge onda strci na levu stranu)
+            padding-right: 0;
+            p{
+                padding-left: 0;
+            }
+        }
+    }
+
+    .timeline{
+        //Prebacivanje radne biografije u jedan red
+        grid-template-columns: 1fr;
+        //podizemo najdonji element jer je controls sekcija fiksirana dole
+        padding-bottom: 6rem;
+    }
+
+    
+
+
+    //PORTFOLIO
+    .portfolios{
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+
+    //BLOGS
+    .blogs{
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+
+    //CONTACT
+    .contact-content-con{
+        //U Contact sekciji su kolone bile preko flex-a pa je sad samo promenjen smer na vertikalno
+        flex-direction: column;
+        .right-contact{
+            //Isto kao i gore sa paddingom, desna kolona je imala margin left
+            margin-left: 0;
+            //Takodje pri slaganju jedan na drugi el. treba ih i odvojiti vertikalno
+            margin-top: 2.5rem;
+        }
+    }
+    
+    .contact-content-con .right-contact .i-c-2{
+        //Input Polja NAME i EMAIL treba da se smeste jedan ispod drugog
+        flex-direction: column;
+    }
+
+    .contact-content-con .right-contact .i-c-2 :last-child{
+        //Uklanjamo margin left desnog Input polja i odvajamo vertikalno - Small ekran
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+
+    //VEOMA VAZNO!!!
+    //Uklanjanje paddinga od 18rem kod SVIH sekcija u SMALL ekranima 
+    .section{
+        padding: 2rem 2.5rem;
+    }
+
+    .main-title{
+        h2{
+            font-size: 2rem;
+            span{
+                font-size: 2.5rem;
+            }
+            .bg-text{
+                font-size: 3rem;
+            }
+        }
+    }
+   
+}
+
+
+
+
+
+
+/*
+*************************************************
+* Media Query max-width: 1610px
+*************************************************
+*/
+
+//DODATO Naknadno zbog nekih pomeranja u Chrome-u pri 1609px i nize 
+@media  screen and (max-width: 1610px) {
+    //CONTACT
+    .contact-content-con{
+        //U Contact sekciji su kolone bile preko flex-a pa je sad samo promenjen smer na vertikalno
+        flex-direction: column;
+        .right-contact{
+            //Isto kao i gore sa paddingom, desna kolona je imala margin left
+            margin-left: 0;
+            //Takodje pri slaganju jedan na drugi el. treba ih i odvojiti vertikalno
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+
+
+
+
+
+/*
+*************************************************
+* Media Query max-width: 1432px
+*************************************************
+*/
+
+//MQ zbog contact sekcije jer se sekcija sa kontakt podacima brzo razdesi kako krenemo da smanjujemo
+@media  screen and (max-width: 1432px) {
+
+    header {
+        padding: 0 !important;
+    }
+    //Ovde smo malo promenili i padding ostalih sekcija sto utice na header
+    .section{
+        padding: 7rem 11rem;
+    }
+    //CONTACT
+    .contact-content-con{
+        //U Contact sekciji su kolone bile preko flex-a pa je sad samo promenjen smer na vertikalno
+        flex-direction: column;
+        .right-contact{
+            //Isto kao i gore sa paddingom, desna kolona je imala margin left
+            margin-left: 0;
+            //Takodje pri slaganju jedan na drugi el. treba ih i odvojiti vertikalno
+            margin-top: 2.5rem;
+        }
+    }
+    
+    .contact-content-con .right-contact .i-c-2{
+        //Input Polja NAME i EMAIL treba da se smeste jedan ispod drugog
+        flex-direction: column;
+    }
+
+    .contact-content-con .right-contact .i-c-2 :last-child{
+        //Uklanjamo margin left desnog Input polja i odvajamo vertikalno - Small ekran
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+
+}
+
+
+
+
+
+/*
+*************************************************
+* Media Query max-width: 1070px
+*************************************************
+*/
+
+//Srednji ekran do 1070px - about sekcija
+@media screen and (max-width: 1070px) {
+    .about-container{
+        //Prebacivanje about sekcije u jednu kolonu
+        grid-template-columns: 1fr;
+        .right-about{
+            //i kako to ide kad se slaze vertikalno, sekciju koja je bilo desno odvojimo
+            padding-top: 2.5rem;
+        }
+    }
+
+    .portfolios{
+        //Za srednje ekrane stavljamo portfolije u dve kolone (kao i blog)
+        grid-template-columns: 1fr 1fr;
+    
+    }
+    .blogs{
+        //Za srednje ekrane stavljamo portfolije u dve kolone (kao i blog)
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .main-title{
+        h2{
+            //Mozemo imati vise klasa u elementu pa sledstveno tome mozemo ih sve menjati u sass-u
+            font-size: 4rem;
+            span{
+                font-size: 4rem;
+            }
+            .bg-text{
+                font-size: 4.5rem;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*
+*************************************************
+* Media Query max-width: 970px
+*************************************************
+*/
+
+@media screen and (max-width: 970px) {
+    .section{
+        //Padding je generalno potrebno pratiti i gledati gde se pri resize previse pokazuje pa menjati
+        padding: 7rem 6rem !important; //ovde smo dodali important zbog header sekcije
+    }
+
+
+    //HEADER (Ovo je bilo u MQ za 600px ali se pokazalo da je potrebno ranije ubaciti pri resize-u
+    header{
+        padding: 0;
+    }
+    //U heade sekciji u right-header podsekciji iskljucujemo padding-right od 18rem na 0
+    //!important overide podesavanje - samo kada je neophodno
+    header .right-header{
+        padding: 0 !important;
+    }
+
+    //Smanjivanje butona za promenu color sheme
+    .theme-btn{
+        width: 50px;
+        height: 50px;
+    }
+
+    //Uklanjanje div-a na koji je primenjen clip-path - koji je bio ukras
+    .left-header{
+        .h-shape{
+            display: none;
+        }
+    }
+
+    //Stavljanje desnog headera na prvo mesto iznad slike (Bio je ispod slike)
+    .right-header{
+        grid-row: 1;
+        width: 90%;
+        //centriranje kolone - auto za levo i desno
+        margin: 0 auto;
+        //smanjujemo velicinu teksta
+        .name{
+            font-size: 2.5rem !important;
+        }
+    }
+
+    //Centriranje i sirina slike u headeru
+    .header-content .left-header .image{
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    //Prebacivanje header sadrzaja iz 2 u jednu kolonu
+    .header-content{
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+    //Controls je takoje premesten iz MQ 600px da se zajedno sa headerom menja
+    .controls{
+        //Smestanje control sekcije na dole i slaganje u red
+        top: auto;
+        bottom: 0;
+        flex-direction: row;
+        //Centriranje sekcije zajedno sa lef i transform sa po 50%
+        justify-content: center;
+        left: 50%;
+        transform: translateX(-50%);
+        //da zauzmu ceo red
+        width: 100%;
+        background-color: var(--color-grey-5);
+        .control{
+            margin: .6rem 1rem;
+        }  
+    }
+}
+
+
+
+
+
+
+/*
+*************************************************
+* Media Query max-width: 700px
+*************************************************
+*/
+
+@media screen and (max-width: 700px) {
+    .section{
+        //Padding je generalno potrebno pratiti i gledati gde se pri resize previse pokazuje pa menjati
+        padding: 7rem 3rem !important;
+    }
+    //Ovo je prebaceno iz MQ 600px
+    .about-stats{
+        .progress-bars{
+            grid-template-columns: 1fr;
+        }
+    }
+    .main-title{
+        h2{
+            font-size: 3rem;
+            span{
+                font-size: 3rem;
+            }
+            .bg-text{
+                font-size: 4rem;
+            }
+        }
+    }
+}

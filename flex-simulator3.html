@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 0;
+            color: white;
+
+            background-image: linear-gradient(to right,
+
+                    hsl(211, 100%, 50%),
+                    hsl(179, 100%, 30%));
+
+        }
+
+
+
+
+        .wraper {
+            display: flex;
+            justify-content: stretch;
+            align-items: stretch;
+            height: 80vw;
+            width: 100%;
+        }
+
+        .options {
+            border: 2px solid black;
+            width: 20%;
+            height: 50%;
+           
+        }
+
+        .options:first-child,
+        .code {
+            overflow: auto;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin: 4px;
+        }
+
+        .property {
+            margin: 4px;
+            padding: 2px;
+            background-color: #8dcce6;
+
+
+        }
+
+        h5 {
+            font-size: 12px;
+            margin: 4px;
+            padding: 2px;
+        }
+
+        .select-item {
+            font-size: 12px;
+            margin: 4px;
+            padding: 2px;
+            font-weight: 700;
+        }
+
+        
+        /*.options -->*/
+        .property-btn {
+            padding: 1px;
+            margin: 2px;
+            font-size: 10px;
+            border: 1px solid rgb(9, 80, 138);
+            border-radius: 3px;
+
+        }
+
+        .active,
+        .active6,
+        .active9 {
+            background-color: lightseagreen;
+
+        }
+
+        .active2,
+        .active7 {
+            background-color: lightgreen;
+        }
+
+        .active3,
+        .active8 {
+            background-color: rosybrown;
+        }
+
+        .active4 {
+            background-color: rgb(158, 207, 58);
+        }
+
+        .active5 {
+            background-color: salmon;
+        }
+
+
+        .container {
+            display: flex;
+
+            border: 2px solid #806868;
+            width: 60%;
+            height: 50%;
+
+            flex-shrink: 0;
+        }
+
+
+        .item {
+            border: 2px solid #457081;
+            margin: 10px;
+
+        }
+
+        .item::first-letter {
+            font-size: 32px;
+        }
+
+
+        .code {
+            border: 2px solid black;
+            width: 20%;
+            height: 50%;
+
+        }
+
+        .containerCode,
+        .itemCode,
+        .itemSelfCode {
+            margin: 3px;
+        }
+
+        .ptagCode {
+            padding-left: 20px;
+            margin: 4px;
+        }
+
+        .ptagCodeBracket {
+            padding-left: 5px;
+            margin: 5px;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+            .options {
+
+                width: 100%;
+
+            }
+
+            .container {
+
+                width: 100%;
+
+            }
+
+            .code {
+
+                width: 100%;
+                height: auto;
+
+            }
+
+        }
+
+
+        @media only screen and (max-width: 1200px) {
+
+            .wraper {
+
+                flex-direction: column;
+                height: auto;
+
+            }
+
+            .options {
+
+                width: 100%;
+                height: auto;
+
+            }
+
+            .container {
+
+                width: 100%;
+                height: auto;
+
+            }
+
+            .code {
+
+                width: 100%;
+                height: auto;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FLEX SIMULATOR - container and items</h1>
+    <div class="wraper">
+        <div class="options">
+            <h4>CONTAINER </h4>
+
+            <div class="property">
+                <h5 class="property-name" title="MAIN AXIS orientation">FLEX-DIRECTION:</h5>
+                <button class="property-btn flexDirectionBtn active" id="flexDirectionRow">flex-direction: row;
+                    (default)</button>
+                <button class="property-btn flexDirectionBtn" id="flexDirectionColumn">flex-direction: column;</button>
+                <button class="property-btn flexDirectionBtn" id="flexDirectionRowReverse">flex-direction:
+                    row-reverse;</button>
+                <button class="property-btn flexDirectionBtn" id="flexDirectionColumnReverse">flex-direction:
+                    column-reverse;</button>
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Item aligment across MAIN axis">JUSTIFY-CONTENT:</h5>
+                <button class="property-btn justifyContentBtn active2" id="justifyContentFlexStart">justify-content:
+                    flex-start;(default)</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentFlexEnd">justify-content:
+                    flex-end;</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentCenter">justify-content:
+                    center;</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentSpaceAround">justify-content:
+                    space-around;</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentSpaceBetween">justify-content:
+                    space-between;</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentStretch">justify-content:
+                    stretch;</button>
+                <button class="property-btn justifyContentBtn" id="justifyContentSpaceEvenly">justify-content:
+                    space-evenly;</button>
+
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Item aligment across CROSS AXIS">ALIGN-ITEMS:</h5>
+                <button class="property-btn alignItemsBtn active3" id="alignItemsStretch">align-items: stretch;
+                    (default)</button>
+                <button class="property-btn alignItemsBtn" id="alignItemsFlexStart">align-items: flex-start;</button>
+                <button class="property-btn alignItemsBtn" id="alignItemsFlexEnd">align-items: flex-end;</button>
+                <button class="property-btn alignItemsBtn" id="alignItemsCenter">align-items: center;</button>
+
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Overflow elements handle">FLEX-WRAP:</h5>
+                <button class="property-btn flexWrapBtn active4" id="flexWrapNoWrap">flex-wrap: nowrap;
+                    (default)</button>
+                <button class="property-btn flexWrapBtn" id="flexWrapWrap">flex-wrap: wrap;</button>
+                <button class="property-btn flexWrapBtn" id="flexWrapWrapReverse">flex-wrap: wrap-reverse;</button>
+
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Control on rows/columns after Flex-Wrap accross MAIN AXIS">
+                    ALIGN-CONTENT:</h5>
+                <button class="property-btn alignContentBtn active5" id="alignContentStretch">align-content: stretch;
+                    (default)</button>
+                <button class="property-btn alignContentBtn" id="alignContentFlexStart">align-content:
+                    flex-start;</button>
+                <button class="property-btn alignContentBtn" id="alignContentFlexEnd">align-content: flex-end;</button>
+                <button class="property-btn alignContentBtn" id="alignContentCenter">align-content: center;</button>
+                <button class="property-btn alignContentBtn" id="alignContentSpaceAround">align-content:
+                    space-around;</button>
+                <button class="property-btn alignContentBtn" id="alignContentSpaceBetween">align-content:
+                    space-between;</button>
+
+            </div>
+            
+
+            
+        </div>
+
+        <div class="options">
+
+            <h4>ITEMS </h4>
+
+            <div class="property">
+                <h5 class="property-name" title="Item Width/Height accros MAIN AXIS">FLEX-BASIS:</h5>
+                <button class="property-btn flexBasisBtn active6" id="flexBasisAuto">flex-basis: auto;
+                    (default)</button>
+                <br>
+                <button class="property-btn flexBasisBtn" id="flexBasisPx">flex-basis: (in px)</button> 
+                <input type="number" id="inputFlexBasisPx">
+                <br>
+                <button class="property-btn flexBasisBtn" id="flexBasisPercent">flex-basis: (in %)</button> 
+                <input type="range" id="inputFlexBasisPercent" min="0" max="100"> <span id="spanPercentValue"></span>
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Item Grow">FLEX-GROW:</h5>
+                <button class="property-btn flexGrowBtn active7" id="flexGrow0">flex-grow: 0;
+                    (default)</button>
+                
+                <button class="property-btn flexGrowBtn" id="flexGrow1">flex-grow: 1</button> 
+                                
+            </div>
+
+            <div class="property">
+                <h5 class="property-name" title="Item Shrink">FLEX-SHRINK:</h5>
+                <button class="property-btn flexShrinkBtn active8" id="flexShrink1">flex-shrink: 1;
+                    (default)</button>
+                
+                <button class="property-btn flexShrinkBtn" id="flexShrink0">flex-grow: 0</button> 
+                                
+            </div>
+
+            <br>
+
+            <h4>ITEM (n-th item) </h4>
+
+            <div class="property">
+                <h5 class="property-name" title="Item aligment - alone">ALIGN-SELF:</h5>
+                <button class="property-btn alignSelfBtn active9" id="alignSelfAuto">align-self: auto;
+                    (default)</button>
+                <button class="property-btn alignSelfBtn" id="alignSelfStretch">align-self: stretch;</button>
+                <button class="property-btn alignSelfBtn" id="alignSelfFlexStart">align-self: flex-start;</button>
+                <button class="property-btn alignSelfBtn" id="alignSelfFlexEnd">align-self: flex-end;</button>
+                <button class="property-btn alignSelfBtn" id="alignSelfCenter">align-items: center;</button>
+                
+                <br>
+
+                <!-- <p id="demo">Select item (1-8)</p>
+                <button id="item1" onclick="setItem('1')">1</button>
+                <input type="number" id="itemSet"  min="1" max="8">
+
+                --> 
+                <form>
+                    <span class="select-item">Select item: </span>
+                    <select onchange="setItem(this.options[this.selectedIndex].value);">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                    </select>
+                </form> 
+            </div>
+
+
+        </div>
+
+        <div class="container" id="container">
+            
+			<div class="item" id="df">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+
+            <!-- <img class="item" src="https://image.shutterstock.com/image-photo/test-word-made-colored-wooden-260nw-573036694.jp" alt="">
+            <img class="item" src="https://image.shutterstock.com/image-photo/test-word-made-colored-wooden-260nw-573036694.jp" alt="">
+            <img class="item" src="https://image.shutterstock.com/image-photo/test-word-made-colored-wooden-260nw-573036694.jp" alt="">
+            <img class="item" src="https://image.shutterstock.com/image-photo/test-word-made-colored-wooden-260nw-573036694.jp" alt=""> 
+
+
+            <img class="item" src="https://via.placeholder.com/150/0000FF/808080?text=1" alt="">
+			
+            <img class="item" src="https://via.placeholder.com/150/FF0000/FFFFFF?text=2" alt="">
+            <img class="item" src="https://via.placeholder.com/150/FFFF00/000000?text=3" alt="">
+            <img class="item" src="https://via.placeholder.com/150/000000/FFFFFF?text=4" alt="">
+        -->
+            <div class="item">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem, officiis et id consequatur 
+                beatae quo placeat eaque reiciendis maxime aliquid excepturi tempora nulla! Obcaecati provident quos suscipit 
+                earum eveniet!
+            </div>
+            <div class="item">2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem, officiis et id consequatur 
+                beatae quo placeat eaque reiciendis maxime aliquid excepturi tempora nulla! Obcaecati provident quos suscipit 
+                earum eveniet!
+            </div>
+            <div class="item">3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem, officiis et id consequatur 
+                beatae quo placeat eaque reiciendis maxime aliquid excepturi tempora nulla! Obcaecati provident quos suscipit 
+                earum eveniet!
+            </div>
+            <div class="item">4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem, officiis et id consequatur 
+                beatae quo placeat eaque reiciendis maxime aliquid excepturi tempora nulla! Obcaecati provident quos suscipit 
+                earum eveniet!
+            </div>
+
+        </div>
+
+        <div class="code">
+            <div class="containerCode">
+                <p>(Note: Default options can be omitted when copy/paste, once the desired element layout is selected.)
+                </p>
+                <p class="ptagCode ptagCodeBracket">.container {</p>
+                <p class="ptagCode">display: flex;</p>
+                <p class="ptagCode active" id="flexDirectionCode">flex-direction: row; /*default*/</p>
+                <p class="ptagCode active2" id="justifyContentCode">justify-content: flex-start; /*default*/</p>
+                <p class="ptagCode active3" id="alignItemsCode">align-items: stretch; /*default*/</p>
+                <p class="ptagCode active4" id="flexWrapCode">flex-wrap: nowrap; /*default*/</p>
+                <p class="ptagCode active5" id="alignContentCode">align-content: stretch; /*default*/</p>
+                <p class="ptagCode ptagCodeBracket">}</p>
+
+            </div>
+            <br>
+            <div class="itemCode">
+                <p class="ptagCode ptagCodeBracket">.item {</p>
+                <p class="ptagCode active6" id="flexBasisCode">flex-basis: auto; /*default*/</p>
+                <p class="ptagCode active7" id="flexGrowCode">flex-grow: 0; /*default*/</p>
+                <p class="ptagCode active8" id="flexShrinkCode">flex-shrink: 1; /*default*/</p>
+                <p class="ptagCode ptagCodeBracket">}</p>
+
+            </div>
+        
+            <br>
+            <div class="itemSelfCode">
+                <p class="ptagCode ptagCodeBracket">.item:nth-child(n) {</p>
+                <p class="ptagCode active9" id="alignSelfCode">align-self: auto; /*default*/</p>
+                <p class="ptagCode ptagCodeBracket">}</p>
+
+            </div>
+
+
+        </div>
+
+        
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+alert(`💻CSS FLEX simulator - flex container and flex items💻
+    
+    This is simulator of DISPLAY: FLEX properties for CONTAINER element and now also for ITEMS elements
+    
+    In DIV container with class "container" is HTML test set so it is
+    possible to comment/uncommnet different combination of elements. 
+
+    Also you can try your HTML code, just copy it into this div.
+    ` )
+
+
+    const containerId = document.getElementById("container");
+    
+
+    // Add active class to the current button (highlight it)
+    function setClassActiveBtn(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+    }
+
+    function setClassActiveBtn2(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active2");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active2", "");
+                }
+                this.className += " active2";
+            });
+        }
+    }
+
+    function setClassActiveBtn3(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active3");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active3", "");
+                }
+                this.className += " active3";
+            });
+        }
+    }
+
+    function setClassActiveBtn4(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active4");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active4", "");
+                }
+                this.className += " active4";
+            });
+        }
+    }
+
+    function setClassActiveBtn5(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active5");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active5", "");
+                }
+                this.className += " active5";
+            });
+        }
+    }
+
+
+
+    function setClassActiveBtn6(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active6");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active6", "");
+                }
+                this.className += " active6";
+            });
+        }
+    }
+
+    function setClassActiveBtn7(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active7");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active7", "");
+                }
+                this.className += " active7";
+            });
+        }
+    }
+
+    function setClassActiveBtn8(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active8");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active8", "");
+                }
+                this.className += " active8";
+            });
+        }
+    }
+
+    function setClassActiveBtn9(btnClass) {
+        //var header = document.getElementById("");
+        var btns = document.getElementsByClassName(btnClass);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active9");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active9", "");
+                }
+                this.className += " active9";
+            });
+        }
+    }
+
+
+    /* ODREDJIVANJE MAIN AXIS (glavni tok)- row - horizontalno, vertical - vertikalno */
+    /* Default za flex-direction je row */
+    /* flex-direction: row; */
+    /* flex-direction: column; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column-reverse; */
+    //Funkcije za Flex-direction property
+    const flexDirectionCodeId = document.getElementById("flexDirectionCode");
+
+    const flexDirectionRowId = document.getElementById("flexDirectionRow");
+    flexDirectionRowId.addEventListener("click", flexDirectionRowSet);
+    flexDirectionRowId.addEventListener("click", setClassActiveBtn("flexDirectionBtn"));
+
+    function flexDirectionRowSet() {
+        container.style.flexDirection = "row";
+        flexDirectionCodeId.textContent = "flex-direction: row; /*default*/";
+
+    }
+
+
+    const flexDirectionColumnId = document.getElementById("flexDirectionColumn");
+    flexDirectionColumnId.addEventListener("click", flexDirectionColumnSet);
+    flexDirectionColumnId.addEventListener("click", setClassActiveBtn("flexDirectionBtn"));
+
+    function flexDirectionColumnSet() {
+        container.style.flexDirection = "column";
+        flexDirectionCodeId.textContent = "flex-direction: column;";
+    }
+
+
+    const flexDirectionRowReverseId = document.getElementById("flexDirectionRowReverse");
+    flexDirectionRowReverseId.addEventListener("click", flexDirectionRowReverseSet);
+    flexDirectionRowReverseId.addEventListener("click", setClassActiveBtn("flexDirectionBtn"));
+
+    function flexDirectionRowReverseSet() {
+        container.style.flexDirection = "row-reverse";
+        flexDirectionCodeId.textContent = "flex-direction: row-reverse;";
+
+    }
+
+
+    const flexDirectionColumnReverseId = document.getElementById("flexDirectionColumnReverse");
+    flexDirectionColumnReverseId.addEventListener("click", flexDirectionColumnReverseSet);
+    flexDirectionColumnReverseId.addEventListener("click", setClassActiveBtn("flexDirectionBtn"));
+
+    function flexDirectionColumnReverseSet() {
+        container.style.flexDirection = "column-reverse";
+        flexDirectionCodeId.textContent = "flex-direction: column-reverse;";
+    }
+
+
+
+
+
+
+    /* RASPOREDJIVANJE ITEMA PO MAIN AXIS */
+    /* Default za justify-content je flexstart */
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    /* justify-content: stretch; */
+    /* justify-content: space-evenly; */
+    //Funkcije za Justify-content property
+    const justifyContentCodeId = document.getElementById("justifyContentCode");
+
+    const justifyContentFlexStartId = document.getElementById("justifyContentFlexStart");
+    justifyContentFlexStartId.addEventListener("click", justifyContentFlexStartSet);
+    justifyContentFlexStartId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentFlexStartSet() {
+        container.style.justifyContent = "flex-start";
+        justifyContentCodeId.textContent = "justify-content: flex-start; /*default*/";
+
+    }
+
+
+
+    const justifyContentFlexEndId = document.getElementById("justifyContentFlexEnd");
+    justifyContentFlexEndId.addEventListener("click", justifyContentFlexEndSet);
+    justifyContentFlexEndId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentFlexEndSet() {
+        container.style.justifyContent = "flex-end";
+        justifyContentCodeId.textContent = "justify-content: flex-end;";
+
+    }
+
+
+    const justifyContentCenterId = document.getElementById("justifyContentCenter");
+    justifyContentCenterId.addEventListener("click", justifyContentCenterSet);
+    justifyContentCenterId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentCenterSet() {
+        container.style.justifyContent = "center";
+        justifyContentCodeId.textContent = "justify-content: center;";
+
+    }
+
+
+    const justifyContentSpaceAroundId = document.getElementById("justifyContentSpaceAround");
+    justifyContentSpaceAroundId.addEventListener("click", justifyContentSpaceAroundSet);
+    justifyContentSpaceAroundId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentSpaceAroundSet() {
+        container.style.justifyContent = "space-around";
+        justifyContentCodeId.textContent = "justify-content: space-around;";
+
+    }
+
+
+    const justifyContentSpaceBetweenId = document.getElementById("justifyContentSpaceBetween");
+    justifyContentSpaceBetweenId.addEventListener("click", justifyContentSpaceBetweenSet);
+    justifyContentSpaceBetweenId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentSpaceBetweenSet() {
+        container.style.justifyContent = "space-between";
+        justifyContentCodeId.textContent = "justify-content: space-between;";
+
+    }
+
+
+    const justifyContentStretchId = document.getElementById("justifyContentStretch");
+    justifyContentStretchId.addEventListener("click", justifyContentStretchSet);
+    justifyContentStretchId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentStretchSet() {
+        container.style.justifyContent = "stretch";
+        justifyContentCodeId.textContent = "justify-content: stretch;";
+
+    }
+
+
+    const justifyContentSpaceEvenlyId = document.getElementById("justifyContentSpaceEvenly");
+    justifyContentSpaceEvenlyId.addEventListener("click", justifyContentSpaceEvenlySet);
+    justifyContentSpaceEvenlyId.addEventListener("click", setClassActiveBtn2("justifyContentBtn"));
+
+    function justifyContentSpaceEvenlySet() {
+        container.style.justifyContent = "space-evenly";
+        justifyContentCodeId.textContent = "justify-content: space-evenly;";
+
+    }
+
+
+    /* RASPOREDJIVANJE ITEMA PO KROS AXIS - normalno na Main axis */
+    /* Default za align-items je stretch */
+    /* align-items: stretch; */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+
+    //Funkcije za Align-items property
+    const alignItemsCodeId = document.getElementById("alignItemsCode");
+
+    const alignItemsStretchId = document.getElementById("alignItemsStretch");
+    alignItemsStretchId.addEventListener("click", alignItemsStretchSet);
+    alignItemsStretchId.addEventListener("click", setClassActiveBtn3("alignItemsBtn"));
+
+    function alignItemsStretchSet() {
+        container.style.alignItems = "stretch";
+        alignItemsCodeId.textContent = "align-items: stretch; /*default*/";
+
+    }
+
+
+    const alignItemsFlexStartId = document.getElementById("alignItemsFlexStart");
+    alignItemsFlexStartId.addEventListener("click", alignItemsFlexStartSet);
+    alignItemsFlexStartId.addEventListener("click", setClassActiveBtn3("alignItemsBtn"));
+
+    function alignItemsFlexStartSet() {
+        container.style.alignItems = "flex-start";
+        alignItemsCodeId.textContent = "align-items: flex-start";
+
+    }
+
+
+    const alignItemsFlexEndId = document.getElementById("alignItemsFlexEnd");
+    alignItemsFlexEndId.addEventListener("click", alignItemsFlexEndSet);
+    alignItemsFlexEndId.addEventListener("click", setClassActiveBtn3("alignItemsBtn"));
+
+    function alignItemsFlexEndSet() {
+        container.style.alignItems = "flex-end";
+        alignItemsCodeId.textContent = "align-items: flex-end";
+
+    }
+
+
+    const alignItemsCenterId = document.getElementById("alignItemsCenter");
+    alignItemsCenterId.addEventListener("click", alignItemsCenterSet);
+    alignItemsCenterId.addEventListener("click", setClassActiveBtn3("alignItemsBtn"));
+
+    function alignItemsCenterSet() {
+        container.style.alignItems = "center";
+        alignItemsCodeId.textContent = "align-items: center";
+
+    }
+
+
+    /* Prelivanje itema u novi red/kolonu u slucaju overflova */
+    /* Default za flex-wrap je no-wrap */
+    /* flex-wrap: nowrap; */
+    /* flex-wrap: wrap;  */
+    /* flex-wrap: wrap-reverse; */
+    //Funkcije za Align-items property
+    const flexWrapCodeId = document.getElementById("flexWrapCode");
+
+    const flexWrapNoWrapId = document.getElementById("flexWrapNoWrap");
+    flexWrapNoWrapId.addEventListener("click", flexWrapNoWrapSet);
+    flexWrapNoWrapId.addEventListener("click", setClassActiveBtn4("flexWrapBtn"));
+
+    function flexWrapNoWrapSet() {
+        container.style.flexWrap = "nowrap";
+        flexWrapCodeId.textContent = "flex-wrap: nowrap; /*default*/";
+
+    }
+
+
+    const flexWrapWrapId = document.getElementById("flexWrapWrap");
+    flexWrapWrapId.addEventListener("click", flexWrapWrapSet);
+    flexWrapWrapId.addEventListener("click", setClassActiveBtn4("flexWrapBtn"));
+
+    function flexWrapWrapSet() {
+        container.style.flexWrap = "wrap";
+        flexWrapCodeId.textContent = "flex-wrap: wrap;";
+
+    }
+
+
+    const flexWrapWrapReverseId = document.getElementById("flexWrapWrapReverse");
+    flexWrapWrapReverseId.addEventListener("click", flexWrapWrapReverseSet);
+    flexWrapWrapReverseId.addEventListener("click", setClassActiveBtn4("flexWrapBtn"));
+
+    function flexWrapWrapReverseSet() {
+        container.style.flexWrap = "wrap-reverse";
+        flexWrapCodeId.textContent = "flex-wrap: wrap-reverse;";
+
+    }
+
+
+
+    /* Kontrola redova/kolona nakon FLEX-WRAP - po MAIN axis */
+    /* Default za align-content je stretch */
+    /* align-content: stretch;  */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center;  */
+    /* align-content: space-around; */
+    /* align-content: space-between; */
+    //Funkcije za Align-content property
+    const alignContentCodeId = document.getElementById("alignContentCode");
+
+    const alignContentStretchId = document.getElementById("alignContentStretch");
+    alignContentStretchId.addEventListener("click", alignContentStretchSet);
+    alignContentStretchId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentStretchSet() {
+        container.style.alignContent = "stretch";
+        alignContentCodeId.textContent = "align-content: stretch; /*default*/";
+
+    }
+
+
+    const alignContentFlexStartId = document.getElementById("alignContentFlexStart");
+    alignContentFlexStartId.addEventListener("click", alignContentFlexStartSet);
+    alignContentFlexStartId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentFlexStartSet() {
+        container.style.alignContent = "flex-start";
+        alignContentCodeId.textContent = "align-content: flex-start;";
+
+    }
+
+
+    const alignContentFlexEndId = document.getElementById("alignContentFlexEnd");
+    alignContentFlexEndId.addEventListener("click", alignContentFlexEndSet);
+    alignContentFlexEndId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentFlexEndSet() {
+        container.style.alignContent = "flex-end";
+        alignContentCodeId.textContent = "align-content: flex-end;";
+
+    }
+
+
+    const alignContentCenterId = document.getElementById("alignContentCenter");
+    alignContentCenterId.addEventListener("click", alignContentCenterSet);
+    alignContentCenterId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentCenterSet() {
+        container.style.alignContent = "center";
+        alignContentCodeId.textContent = "align-content: center;";
+
+    }
+
+
+    const alignContentSpaceAroundId = document.getElementById("alignContentSpaceAround");
+    alignContentSpaceAroundId.addEventListener("click", alignContentSpaceAroundSet);
+    alignContentSpaceAroundId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentSpaceAroundSet() {
+        container.style.alignContent = "space-around";
+        alignContentCodeId.textContent = "align-content: space-around;";
+
+    }
+
+
+    const alignContentSpaceBetweenId = document.getElementById("alignContentSpaceBetween");
+    alignContentSpaceBetweenId.addEventListener("click", alignContentSpaceBetweenSet);
+    alignContentSpaceBetweenId.addEventListener("click", setClassActiveBtn5("alignContentBtn"));
+
+    function alignContentSpaceBetweenSet() {
+        container.style.alignContent = "space-between";
+        alignContentCodeId.textContent = "align-content: space-between;";
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+   
+    const item = document.getElementsByClassName("item");
+    
+    /***************************************************
+     * ITEMS
+    /***************************************************
+    
+     /* SIRINA ITEM-a - FLEX-BASIS*/
+    /* Default za flex-basis je auto */
+    /* flex-basis: auto; */
+    /* flex-basis: px; */
+    /* flex-basis: %; */
+    
+    //Funkcije za Flex-basis property
+    const flexBasisCodeId = document.getElementById("flexBasisCode");
+
+    const flexBasisAutoId = document.getElementById("flexBasisAuto");
+    flexBasisAutoId.addEventListener("click", flexBasisAutoSet);
+    flexBasisAutoId.addEventListener("click", setClassActiveBtn6("flexBasisBtn"));
+
+    function flexBasisAutoSet() {
+        for (let i = 0; i <item.length; i++) {
+            item[i].style.flexBasis = "auto";
+        }
+               
+        flexBasisCodeId.textContent = "flex-basis: auto; /*default*/";
+    }
+
+        
+
+    const flexBasisPxId = document.getElementById("flexBasisPx");
+    flexBasisPxId.addEventListener("click", flexBasisPxSet);
+    flexBasisPxId.addEventListener("click", setClassActiveBtn6("flexBasisBtn"));
+
+    function flexBasisPxSet() {
+        let inputPx = document.getElementById("inputFlexBasisPx").value;
+        for (let i = 0; i < item.length; i++) {
+            item[i].style.flexBasis = inputPx + "px";
+        }
+               
+        flexBasisCodeId.textContent = "flex-basis: " + inputPx + "px";
+    }
+
+
+    const flexBasisPercentId = document.getElementById("flexBasisPercent");
+    flexBasisPercentId.addEventListener("click", flexBasisPercentSet);
+    flexBasisPercentId.addEventListener("click", setClassActiveBtn6("flexBasisBtn"));
+
+    let inputPercent = document.getElementById("inputFlexBasisPercent");
+    let spanPercent = document.getElementById("spanPercentValue");
+
+    inputPercent.oninput = function() {
+        spanPercent.innerHTML = this.value + "%";
+    }
+
+    function flexBasisPercentSet() {
+        
+        //spanPercent.innerHTML = inputPercent + "%";
+        inputPercentValue = inputPercent.value;
+
+        for (let i = 0; i < item.length; i++) {
+            item[i].style.flexBasis = inputPercentValue + "%";
+        }
+               
+        flexBasisCodeId.textContent = "flex-basis: " + inputPercentValue + "%";
+    }
+
+    
+    
+     /* SIRENJE ITEM-a - FLEX-GROW*/
+    /* Default za flex-grow je 0 */
+    /* flex-grow: 0; */
+    /* flex-grow: 1; */
+    
+    
+    //Funkcije za Flex-grow property
+    const flexGrowCodeId = document.getElementById("flexGrowCode");
+
+    const flexGrow0Id = document.getElementById("flexGrow0");
+    flexGrow0Id.addEventListener("click", flexGrow0Set);
+    flexGrow0Id.addEventListener("click", setClassActiveBtn7("flexGrowBtn"));
+
+    function flexGrow0Set() {
+        for (let i = 0; i <item.length; i++) {
+            item[i].style.flexGrow = "0";
+        }
+               
+        flexGrowCodeId.textContent = "flex-grow: 0; /*default*/";
+    }
+
+
+    //const flexGrowCodeId = document.getElementById("flexGrowCode");
+
+    const flexGrow1Id = document.getElementById("flexGrow1");
+    flexGrow1Id.addEventListener("click", flexGrow1Set);
+    flexGrow1Id.addEventListener("click", setClassActiveBtn7("flexGrowBtn"));
+
+    function flexGrow1Set() {
+        for (let i = 0; i <item.length; i++) {
+            item[i].style.flexGrow = "1";
+        }
+               
+        flexGrowCodeId.textContent = "flex-grow: 1;";
+    }
+
+
+
+     /* Skupljanje ITEM-a - FLEX-SHRINK*/
+    /* Default za flex-shrink je 1 */
+    /* flex-shrink: 0; */
+    /* flex-shrink: 1; */
+    
+    
+    //Funkcije za Flex-shrink property
+    const flexShrinkCodeId = document.getElementById("flexShrinkCode");
+
+    const flexShrink1Id = document.getElementById("flexShrink1");
+    flexShrink1Id.addEventListener("click", flexShrink1Set);
+    flexShrink1Id.addEventListener("click", setClassActiveBtn8("flexShrinkBtn"));
+
+    function flexShrink1Set() {
+        for (let i = 0; i <item.length; i++) {
+            item[i].style.flexShrink = "1";
+        }
+               
+        flexShrinkCodeId.textContent = "flex-shrink: 1; /*default*/";
+    }
+
+
+    const flexShrink0Id = document.getElementById("flexShrink0");
+    flexShrink0Id.addEventListener("click", flexShrink0Set);
+    flexShrink0Id.addEventListener("click", setClassActiveBtn8("flexShrinkBtn"));
+
+    function flexShrink0Set() {
+        for (let i = 0; i <item.length; i++) {
+            item[i].style.flexShrink = "1";
+        }
+               
+        flexShrinkCodeId.textContent = "flex-shrink: 0;" ;
+    }
+    
+
+
+
+
+
+    
+
+    /* RASPOREDJIVANJE PJEDINACNOG ITEMA */
+    /* Default za align-self je auto */
+    /* align-self: stretch; */
+    /* align-self: flex-start; */
+    /* align-self: flex-end; */
+    /* align-self: center; */
+
+    //Funkcije za Align-self property
+    const alignSelfCodeId = document.getElementById("alignSelfCode");
+
+
+    
+
+    //var itemSeven = "7";
+    let itemSelected = 1;
+
+    let itemSeven = document.querySelector(`.item:nth-child(${itemSelected})`);
+    
+
+    function setItem(n) {
+        switch(n) {
+        case "1":
+            itemSeven = document.querySelector(".item:nth-child(1)");
+            break;
+        case "2":
+            itemSeven = document.querySelector(".item:nth-child(2)");
+            break;
+        case "3":
+            itemSeven = document.querySelector(".item:nth-child(3)");
+            break;
+        case "4":
+            itemSeven = document.querySelector(".item:nth-child(4)");
+            break;
+        case "5":
+            itemSeven = document.querySelector(".item:nth-child(5)");
+            break;
+        case "6":
+            itemSeven = document.querySelector(".item:nth-child(6)");
+            break;
+        case "7":
+            itemSeven = document.querySelector(".item:nth-child(7)");
+            break;
+        case "8":
+            itemSeven = document.querySelector(".item:nth-child(8)");
+            break;
+        }
+    }
+    /*
+    function setItem(n) {
+    
+        itemSelected = n; 
+        //return itemSelected;
+        
+    }
+    */
+    //item1 = document.getElementById("item1");
+    //item1.onclick = function() {itemSelected = 5;}
+    //itemSelected.oninput = setItem;
+    //itemSelected1 = setItem();
+
+    
+
+
+    const alignSelfAutoId = document.getElementById("alignSelfAuto");
+    alignSelfAutoId.addEventListener("click", alignSelfAutoSet);
+    alignSelfAutoId.addEventListener("click", setClassActiveBtn9("alignSelfBtn"));
+
+    function alignSelfAutoSet() {
+        itemSeven.style.alignSelf = "auto";
+        alignSelfCodeId.textContent = "align-self: auto; /*default*/";
+
+    }
+
+
+    const alignSelfStretchId = document.getElementById("alignSelfStretch");
+    alignSelfStretchId.addEventListener("click", alignSelfStretchSet);
+    alignSelfStretchId.addEventListener("click", setClassActiveBtn9("alignSelfBtn"));
+
+    function alignSelfStretchSet() {
+        itemSeven.style.alignSelf = "stretch";
+        alignSelfCodeId.textContent = "align-self: stretch;" ;
+
+    }
+
+
+    const alignSelfFlexStartId = document.getElementById("alignSelfFlexStart");
+    alignSelfFlexStartId.addEventListener("click", alignSelfFlexStartSet);
+    alignSelfFlexStartId.addEventListener("click", setClassActiveBtn9("alignSelfBtn"));
+
+    function alignSelfFlexStartSet() {
+        itemSeven.style.alignSelf = "flex-start";
+        alignSelfCodeId.textContent = "align-self: flex-start;" ;
+
+    }
+
+
+    const alignSelfFlexEndId = document.getElementById("alignSelfFlexEnd");
+    alignSelfFlexEndId.addEventListener("click", alignSelfFlexEndSet);
+    alignSelfFlexEndId.addEventListener("click", setClassActiveBtn9("alignSelfBtn"));
+
+    function alignSelfFlexEndSet() {
+        itemSeven.style.alignSelf = "flex-end";
+        alignSelfCodeId.textContent = "align-self: flex-end;" ;
+
+    }
+
+
+    const alignSelfCenterId = document.getElementById("alignSelfCenter");
+    alignSelfCenterId.addEventListener("click", alignSelfCenterSet);
+    alignSelfCenterId.addEventListener("click", setClassActiveBtn9("alignSelfBtn"));
+
+    function alignSelfCenterSet() {
+        itemSeven.style.alignSelf = "center";
+        alignSelfCodeId.textContent = "align-self: center;" ;
+
+    }
+
+
+    
+</script>

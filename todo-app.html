@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        
+    <!-- Custom prompt box ALERTIFY-->
+    <!-- <script src="alertify.js"></script>
+    <link rel="stylesheet" href="alertify.core.css" />
+    <link rel="stylesheet" href="alertify.default.css" /> -->
+    <!-- <link rel="stylesheet" href="alertify.bootstrap.css" id="toggleCSS" /> -->
+
+    
+    <style>
+        /*
+        . {
+            background-image: url(https://image.shutterstock.com/image-photo/writers-table-flat-lay-composition-260nw-1017732259.jpg);
+        }*/
+
+        .wraper {
+
+            display: flex;
+            justify-content: stretch;
+        }
+
+        .header {
+            height: 100px;
+            text-align: center;
+            margin-bottom: 5px;
+            background-image: url(https://media.istockphoto.com/photos/to-do-list-in-notebook-with-calendar-picture-id1092571024?k=20&m=1092571024&s=612x612&w=0&h=dz6l5jjYZC0lU2dUkqu5g5_0XtY3xnHs57mJDNlvJSk=);
+            background-size: cover;
+            /* background-image: url(https://thumbs.dreamstime.com/z/office-desk-background-tablet-smart-phone-cup-coffee-view-above-copy-space-top-47148211.jpg); */
+            /* background-image: url(https://thumbs.dreamstime.com/z/writer-s-table-flat-lay-composition-student-desk-w-supplies-blank-notebook-pages-coffee-cup-clipboard-pencil-planner-to-do-list-109189935.jpg); */
+
+        }
+
+        .header h1 {
+            color: tomato;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .options {
+            width: 20%;
+            /* float:left; */
+            background-color: rgb(181, 222, 247);
+            position: -webkit-sticky;
+            /* position: sticky; */
+            /* top: 100px; */
+            margin-left: 0;
+            flex: 0 0 auto;
+
+        }
+
+        .options button {
+            display: inline;
+            width: 50%;
+            margin: 5px 25% 5px 25%;
+            text-align: center;
+
+        }
+
+        .overview {
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .manual {
+            border: black solid 1px;
+            border-radius: 5px;
+            padding: 2px;
+            margin: 10px;
+
+        }
+
+        /*Desni div za zadatke*/
+        .tasks {
+            /* width:80%; */
+            /* float:right; */
+            border: 1px solid blue;
+            flex-basis: 80%;
+            /* justify-self: flex-end; */
+            flex: 1 1 auto;
+        }
+
+        /* .clearfix:after{
+            content: '';
+            display: table;
+            clear: both;
+    
+        } */
+
+        /*Podesavanja za task div i child elemente*/
+        .task {
+            border: black solid 1px;
+            border-radius: 5px;
+            padding: 2px;
+            margin: 10px;
+        }
+
+        .task h5 {
+            /* background-color: whitesmoke; */
+            padding: 2px;
+            padding-left: 10px;
+            margin-bottom: 3px;
+            margin-top: 2px;
+            margin-left: 5px;
+            border-left: 5px solid rgb(89, 223, 11);
+        }
+
+        .task p {
+            /* background-color: wheat; */
+            padding: 2px;
+            padding-left: 15px;
+            margin-left: 5px;
+            margin-bottom: 1px;
+            display: inline;
+            width: 75%;
+            float: left;
+            /* border-left: 5px solid blue; */
+
+        }
+
+        .task button {
+            display: inline;
+            float: right;
+
+
+        }
+
+        #total {
+            font-weight: bolder;
+
+        }
+
+
+        @media screen and (max-width: 700px) {
+
+
+            .wraper {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .options {
+                width: 100%;
+            }
+
+            .tasks {
+                width: 100%;
+            }
+
+            .task p {
+                width: 65%;
+            }
+
+            /* .task button {
+            display: inline-block;
+            float: left; */
+
+
+        }
+
+
+
+
+
+        @media only screen and (min-width: 701px) and (max-width: 1200px) {
+
+            .wraper {
+                flex-direction: row;
+                width: 100%;
+
+            }
+
+            .options {
+                width: 35%;
+            }
+
+            .tasks {
+                width: 100%;
+            }
+
+            .task p {
+                width: 85%;
+                /*ili 85%*/
+            }
+        }
+
+        
+       
+    </style>
+</head>
+
+<body>
+
+    
+
+    
+
+    <div>
+        <div class="header">
+            <h1><strong>TO-DO app</strong></h1>
+        </div>
+
+        
+
+        <div class="wraper">
+            <div class="options">
+                <button id="newTask" class="btn btn-success btn-sm">Novi zadatak</button>
+                <button id="removeTask" class="btn btn-danger btn-sm">Briši zadatak</button>
+
+                <button id="moveTaskUp" class="btn btn-primary btn-sm">Pomeri na početak</button>
+                <button id="moveTaskDown" class="btn btn-primary btn-sm">Pomeri na kraj</button>
+                <div class="overview">
+
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center">Zadaci</th>
+                                <th class="text-center">Broj</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Urađeno</td>
+                            <td id="done" class="text-success bg-dark text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>U toku</td>
+                            <td id="inProgress" class="text-warning bg-dark text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Stopirano</td>
+                            <td id="stopped" class="text-danger bg-dark text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Na čekanju</td>
+                            <td id="clear" class="text-white bg-dark text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bolder fs-2"><strong>UKUPNO</strong></td>
+                            <td id="total" class="text-primary bg-dark text-center"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="manual">
+                    <p> - Opis zadatka (izmena opisa na klik)
+                        <br> - Selekcija/deselekcija zadatka na dvoklik
+                        <br> Markiranje zadatka (na klik)
+                        <br> - bez boje - NA ČEKANJU
+                        <br> - <span style="color: red;">crveno</span> - STOPIRAN
+                        <br> - <span style="color: yellow;">žuto</span> - U IZVRŠENJU
+                        <br> - <span style="color: green;">zeleno</span> - ZAVRŠENO
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="tasks" id="tasks">
+
+            </div>
+        </div>
+
+    </div>
+
+
+    
+</body>
+
+</html>
+
+<script>
+
+
+
+    // alertify.alert( 'Ovo je test primer alertify diiajalog Boxova - to radi bez problema' );
+
+    //Dohvatanje TD elemenata u tabeli za prikaz statusa
+    const taskDoneId = document.getElementById("done");
+    const taskInProgressId = document.getElementById("inProgress");
+    const taskStoppedId = document.getElementById("stopped");
+    const taskClearId = document.getElementById("clear");
+
+    /*****************************************************************/
+    //FUNKCIJA - Brojac stanja taskova - (bez boje, crveno, zuto, zeleno)
+    /*****************************************************************/
+    function countTaskStates() {
+        //pocetni brojaci setovani na 0 jer uvek brojimo iznova pri odredjenoj promeni
+        var taskDone = 0;
+        var taskInProgress = 0;
+        var taskStopped = 0;
+        var taskClear = 0;
+
+        //Dohvatanje div-a sa zadacima ali moramo da targetiramo njegovu "decu" zbog kreiranja dodatnog div el pri Novom zadatku
+        const tasksDiv = document.getElementById("tasks");
+        const tasksArr = tasksDiv.childNodes;
+
+        for (let x = 1; x < tasksArr.length; x++) {
+            //Prolaz kroz niz elemenata i dohvatanje Child div-a (iz poznatih razloga ) i njegovog background atributa pa 
+            //aktiviranje brojaca
+            let arrMemberDiv = tasksArr[x];
+            let arrMember = arrMemberDiv.firstChild;
+            let styleBg = arrMember.style.backgroundColor;
+            console.log(styleBg);
+            //Switch petlja - Obratiti paznju na nacin na koji CHROME cuva vrednost atributa background -RGB    
+            switch (styleBg) {
+                //case "#6ADE62":  - iako je ovo podesavanje u CSS-u - morali smo da navedemo rgb reprezentaciju 
+                case "rgb(106, 222, 98)":
+                    taskDone++;
+                    break;
+                //case "#F1FB50":
+                case "rgb(241, 251, 80)":
+                    taskInProgress++;
+                    break;
+                case "rgb(252, 52, 65)":
+                    taskStopped++;
+                    break;
+                case "":
+                    taskClear++;
+                    break;
+
+            }
+
+        }
+        //Na kraju posle petlje - ispis u tabelu rezultata brojanja
+        taskDoneId.innerHTML = taskDone;
+        taskInProgressId.innerHTML = taskInProgress;
+        taskStoppedId.innerHTML = taskStopped;
+        taskClearId.innerHTML = taskClear;
+    };
+
+
+
+
+
+    //Prikaz datuma i trenutnog vremena u 24h formatu - spremni nizovi sa imenom meseca i dana jer Date objekat vraca brojeve za mesec i dane u nedelji
+    const months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
+    const days = ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"];
+
+    /*****************************************************************/
+    //FUNKCIJA - Prikaz datuma i trenutnog vremena u 24h formatu
+    /*****************************************************************/
+    function dateTime() {
+        const today = new Date(); //Date objekat iz kojeg sve vucemo - datum, trenutno vreme
+        let h = today.getHours();
+        let m = today.getMinutes();
+        m = checkTime(m); // funkcija za dodavanje 0 u prikazu vremena - rezultat se vraca u istu varijablu
+
+        //Formatiranje prikaza datuma i vracanje toga kao rezultata funkcije
+        let date = `${days[today.getDay()]}, ${today.getDate()} ${months[today.getMonth()]}  ${today.getFullYear()}, ${h}:${m}`;
+
+        return date;
+    }
+
+    /*****************************************************************/
+    //FUNKCIJA - Provera ispisa vremena i dodavanje nule ako je broj ispod 10 - primenjena u gornjoj funkciji
+    /*****************************************************************/
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+
+    //Dohvatanje elementa u tabeli za prikaz ukupnog broja zadataka - brojac se menja u newTask i removeTask funkcijama i tamo setuje upis
+    const totalTaskId = document.getElementById("total");
+
+    //Dohvatanje butona za NOVI TASK i dodeljivanje eventa
+    const newTaskBtn = document.querySelector("#newTask");
+    newTaskBtn.addEventListener("click", newTask);
+    //Brojac zadataka setovan na 0
+    var taskTotal = 0;
+    //Brojac rednog broja zadatka setovan na 1 - prikaz ide od 1.
+    var taskNumber = 1;
+    /*****************************************************************/
+    //FUNKCIJA - Dodavanje i prikaz novog zadatka - najvaznija funkcija
+    /*****************************************************************/
+    function newTask() {
+        //Inputi zadatka se dobijaju preko PROMPT-a a za vreme i datum pozivamo funkciju i smestamo string u varijablu
+        
+        var taskHeader = prompt("Naslov zadatka");
+    
+       
+        let taskDate = dateTime();
+
+        var taskDesc = prompt("Opis zadatka");
+        var taskPrior = prompt("Prioritet zadatka (A, B, C)");
+
+        //Validacija PROMPT unosa - da li su popunjenji ili da li je kluknuti na CANCEL (cancel dugme PROMPTA vraca NULL!)
+        if ((taskHeader != "" && taskDesc != "") && (taskHeader != null && taskDesc != null)) {
+
+
+            const tasksDiv = document.querySelector(".tasks");
+            //OVO JE VAZAN MOMENAT - kreiranje novog elementa, praznog DIV-a u koji smo smestili DIV od zadatka sa svim sto ide
+            //Ovo je unelo potrebu za dodatnu manipulaciju tog div-a (sa parent-child relacijama u drugim funkcijama radi dohvatanja
+            //pravog DIV-a sa taskom) pa treba obratiti paznju sledeci put da se to izbegne sa npr - div.classList.add('test');
+            // naknadno dodavanje klase/ID i ondblclick - let newZadatak = div.setAttribute('ondblclick', 'func()'); ili isto za ID... 
+            let newTask = document.createElement("div");
+            //stampanje celog taska sa svim html el i dinamickim atributima i eventovima
+            newTask.innerHTML +=
+                `<div id="taskId${taskNumber}" class="task clearfix" ondblclick="selectingTask(this.id);">
+                    <h5>${taskNumber}. ${taskHeader} - Prioritet ${taskPrior} <span style="float:right">${taskDate}</span></h5>
+                    <p id="taskDescId${taskNumber}" onclick="changeTask(this.id)">${taskDesc}</p>
+                    <button id="taskBtnGreen${taskNumber}" onclick="changeColorGreen(this.id)" style="background: green;" class="badge badge-pill badge-success">Done</button>
+                    <button id="taskBtnYellow${taskNumber}" onclick="changeColorYellow(this.id)" style="background: yellow;" class="badge badge-warning">In progress</button>
+                    <button id="taskBtnRed${taskNumber}" onclick="changeColorRed(this.id)" style="background: red;" class="badge badge-danger">Issue</button>
+                    <button id="taskBtnClear${taskNumber}" onclick="changeColorClear(this.id)" class="badge badge-light">Clear</button>
+                </div>`;
+            //dodavanje DIV-a zadatka u zajednicki DIV el. Ovo gore smo mogli da resimo appendovanjem child-a praznog diva u zajednicki i
+            //i brisanje praznog DIV-a posle izbacivanja child DIV-a iz njega ... childNewTask = newTask.firstChild npr.
+            tasksDiv.appendChild(newTask);
+
+            taskNumber++; //brojac za prikaz se povecava za 1
+            taskTotal++;  //brojac za broj zadataka se povecava za 1
+            //Upis u tabelu za ukupan broj zadataka
+            totalTaskId.innerHTML = taskTotal;
+            //Poziv funkcije brojaca stanja zadataka jer se ukupan broj promenio i ponovo treba azurirati tabelu (dodaje se +1 clear)
+            countTaskStates();
+
+        } else {
+            alert("The header and description input should not be empty. Try again.");
+            //return false;
+        }
+    };
+
+
+    /*****************************************************************/
+    //FUNKCIJE - Menjanje style.bacgroundColor atributa tj boje pozadine div-a
+    /*****************************************************************/
+    function changeColorGreen(id) {
+        //Dohvati se element button, sa this.id u EVENT handleru button elementa, i selektuje tj. dohvati parent DIV buttona
+        //pa se njemu tj parent-u butona setuje boja pozadine!
+        const btnGreenSelected = document.getElementById(id);
+        const btnParentDiv = btnGreenSelected.parentNode;
+        btnParentDiv.style.backgroundColor = "#6ADE62";
+        //Pozivamo funkciju brojaca stanja zadataka jer se promenilo stanje zadatka i ponovo treba azurirati tabelu
+        countTaskStates();
+    }
+
+    function changeColorYellow(id) {
+        const btnYellowSelected = document.getElementById(id);
+        const btnParentDiv = btnYellowSelected.parentNode;
+        btnParentDiv.style.backgroundColor = "#F1FB50";
+        countTaskStates();
+    }
+
+    function changeColorRed(id) {
+        const btnRedSelected = document.getElementById(id);
+        const btnParentDiv = btnRedSelected.parentNode;
+        btnParentDiv.style.backgroundColor = "#FC3441";
+        countTaskStates();
+    }
+
+    function changeColorClear(id) {
+        const btnClearSelected = document.getElementById(id);
+        const btnParentDiv = btnClearSelected.parentNode;
+        btnParentDiv.style.backgroundColor = "";
+        countTaskStates();
+    }
+
+
+    //Za selekciju potrebna nam je globalna varijabla u koju cemo smestati element koji odredjujemo double klikom na njega
+    var selectedTask = "";
+    /*****************************************************************/
+    //FUNKCIJA - za selektovanje elementa - preko poziva ove funkcije u event handleru u samom ellementu koji pokupi ID samog sebe
+    /*****************************************************************/
+    function selectingTask(id) {
+        //Smestanje pokupljenog dopstvenog ID-a (sa this.id u eventu) u spremnu globalnu varijablu 
+        selectedTask = document.getElementById(id);
+        //Menjanje izgleda selektovanog elementa. Prvo se proveri da je style atribut koji menjamo default da bi mogi da ga promenimo
+        if (selectedTask.style.border == "1px solid black") { //SAMO REDOSLED PO PRAVILU - prvo pikseli pa onda boja
+            //menjanje style atributa radi vracanje rezultata (hm da li je to potrebno...)
+            selectedTask.style.border = "4px dotted red";
+            return selectedTask;
+
+        } else {
+            //Ako je vec selektovan tj bilo sta u odnosu na default vracamo style atribut u default stanje
+            //i setujemo globalnu varijablu na null da nam ne zaostane selekcija greskom - a i za deselekciju
+            selectedTask.style.border = "1px solid black";
+            selectedTask = null;
+            return selectedTask;
+        }
+    }
+
+
+    //Dohvatanje elementa button za brisanje zadatka i dodeljivanje eventa
+    let removeTaskId = document.getElementById("removeTask");
+    removeTaskId.addEventListener("click", removeTask);
+    /*****************************************************************/
+    //FUNKCIJA - uklanjanje selektovanog zadatka
+    /*****************************************************************/
+    function removeTask() {
+        //Moramo da selektujemo ceo parent prazan parent DIV zbog onog u funkciji newTask
+        //Zatim brisanje samog zadatka i njegovog parent diva da ne unosi gresku pri brojanju zadataka
+        var parentDivEmpty = selectedTask.parentNode;
+        selectedTask.parentNode.removeChild(selectedTask);
+        parentDivEmpty.parentNode.removeChild(parentDivEmpty);
+        taskTotal--;
+        //Gore smanjenje brojaca zadatka za -1 i upis u tabelu sa 
+        totalTaskId.innerHTML = taskTotal;
+        //Pozivamo funkciju brojaca stanja zadataka jer se promenio broj zadataka i ponovo treba azurirati tabelu
+        countTaskStates();
+
+
+    }
+
+
+
+
+    /*****************************************************************/
+    //FUNKCIJA - Menjanje teksta opisa u zadatku - preko eventa koji dohvata svoj ID pa se njemu menja tekst
+    /*****************************************************************/
+    function changeTask(id) {
+        //Dohvatanje elementa sa this.id
+        let taskDescSelected = document.getElementById(id);
+        //smestanje unosa iz promta u varijablu
+        let taskChange = prompt("Unesite izmenjeni opis zadatka: ");
+        //validacija  da li je unos prazan da ne bi samo obrisali tekst u opisu - ili smo odustali mozda
+        if (taskChange != '' && taskChange != null) {
+            //Nakon uspesne validacije unosimo u dohvaceni element novi tekst iz varijable
+            taskDescSelected.innerHTML = taskChange;
+            //return true;
+
+        } else {
+            //poruka o neuspelom upisu i onemogucavanje upisa (return false) - hmm da li je to potrebno (potrebno je kod submitovanja forme
+            // npr da se forma nebi submitovala iako validacija nije prosla)
+            alert("The input should not be empty. Try again.");
+            return false;
+        }
+    }
+
+    //Dohvatanje elementa button za pomeranje zadatka na gore i dodeljivanje eventa za poziv donje funkcije
+    let moveTaskUpId = document.getElementById("moveTaskUp");
+    moveTaskUpId.addEventListener("click", moveTaskUp);
+    /*****************************************************************/
+    //FUNKCIJA - Menjanje pozicije zadatka u parent divu na gore umetanjem sa .insertBefore tj njegovog Parent noda 
+    /*****************************************************************/
+    function moveTaskUp() {
+        //Dohvatanje glavnog DIV-a i pravljenje niza tj Nod Liste od zadataka
+        const tasksDiv = document.querySelector(".tasks");
+        var arr = tasksDiv.childNodes;
+        //Dohvatanje prvog elementa u glavnom DIV-u jer umecemo selektovani zadatak pre njega 
+        //(POZVAN U globalnu varijablu koju ovde koristimo) i premestanje Parent noda selektovanog elementa zbog onog u funkciji newTask
+        var nodeFirst = tasksDiv.childNodes[1];
+        tasksDiv.insertBefore(selectedTask.parentNode, nodeFirst);
+    };
+
+
+    //Isto sve kao za gornju funkciju samo se selektovani zadatak dodaje na kraj tj. njegov Parent nod
+    let moveTaskDownId = document.getElementById("moveTaskDown");
+    moveTaskDownId.addEventListener("click", moveTaskDown);
+    /*****************************************************************/
+    //FUNKCIJA - Menjanje pozicije zadatka u parent divu na dole umetanjem sa .appendChild
+    /*****************************************************************/
+    function moveTaskDown() {
+        const tasksDiv = document.querySelector(".tasks");
+        var arr = tasksDiv.childNodes;
+        //var n2Index = arr.indexof(selectedTask);
+        //var nodeLast = tasksDiv.childNodes[arr.length-1];
+        tasksDiv.appendChild(selectedTask.parentNode);
+        //selectedTask.parentNode.removeChild(selectedTask);      
+
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    var list = document.getElementById("myList");
+  list.insertBefore(newItem, list.childNodes[0]);
+    */
+    /*
+ var a = document.getElementById("demo");
+      var arr = a.childNodes;
+      for(var x=0;x<arr.length;x++) {
+        arr[x].innerHTML = "new text";
+      }
+ */
+    /*
+    var p = document.createElement("p");
+    var node = document.createTextNode("This is new");
+    p.appendChild(node);
+
+    var parent = document.getElementById("demo");
+    var child = document.getElementById("p1");
+    parent.replaceChild(p, child);
+    */
+
+
+
+
+</script>

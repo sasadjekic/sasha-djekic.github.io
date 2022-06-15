@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: black;
+            background-image: url(https://wallpaperaccess.com/full/137910.jpg);
+            /*background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Milky_Way_Galaxy.jpg/2048px-Milky_Way_Galaxy.jpg);*/
+            background-size: cover;
+
+
+        }
+
+
+
+
+
+        .universe {
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+
+        #container {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            position: relative;
+            border-radius: 50%;
+            box-shadow: -19px 34px 134px -2px rgba(221, 214, 14, 1);
+
+        }
+
+        #box1 {
+            width: 4px;
+            height: 4px;
+            background: rgb(117, 177, 177);
+            position: absolute;
+            border-radius: 50%;
+            position: bottom 150px;
+        }
+
+        #box2 {
+            width: 20px;
+            height: 20px;
+            background: rgb(147, 65, 51);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #box3 {
+            width: 18px;
+            height: 18px;
+            background: rgb(118, 116, 130);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+
+        #box4 {
+            width: 10px;
+            height: 10px;
+            background: rgb(178, 146, 108);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #box5 {
+            width: 50px;
+            height: 50px;
+            background: rgb(196, 158, 139);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #box6 {
+            width: 40px;
+            height: 40px;
+            background: rgb(222, 189, 156);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #box7 {
+            width: 30px;
+            height: 30px;
+            background: rgb(182, 210, 232);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #box8 {
+            width: 28px;
+            height: 28px;
+            background: rgb(100, 145, 213);
+            position: absolute;
+            border-radius: 50%;
+
+        }
+
+
+        #earth {
+
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        #moon {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            position: top 10px;
+            background: yellow;
+            border-radius: 50%;
+
+        }
+
+        .display {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            /* width: 00px; */
+            z-index: 1;
+            background-color: rgb(100, 145, 213);
+            border: 3px solid green;
+            border-radius: 10px;
+            user-select: none;
+            /*Disable selekcije */
+        }
+
+        .display h4,
+        .display p {
+            background-color: rgb(100, 145, 213);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 5px;
+            padding: 3px;
+        }
+
+        .display p span {
+            color: black;
+            font-weight: bolder;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="universe">
+
+        <div id="container">
+            <div class="display">
+                <h4>PLANET CHASER</h4>
+                <p>Click on planet to catch it</p>
+                <p>Planets remained: <span id="planetNumber">8</span></p>
+                <p>Time: <span id="time"></span></p>
+
+            </div>
+
+            <div id="box1" onclick="removePlanet(this.id)"></div>
+            <div id="box2" onclick="removePlanet(this.id)"></div>
+            <div id="box3" onclick="removePlanet(this.id)">
+                <div id="earth">
+                    <img id="img-earth"
+                        src="https://i.pinimg.com/originals/ac/98/36/ac98363fa1d213a0bea7b5a641fc3a73.png" alt="Earth">
+                    <div id="moon"></div>
+                </div>
+            </div>
+            <div id="moon"></div>
+            <div id="box4" onclick="removePlanet(this.id)"></div>
+            <div id="box5" onclick="removePlanet(this.id)"></div>
+            <div id="box6" onclick="removePlanet(this.id)"></div>
+            <div id="box7" onclick="removePlanet(this.id)"></div>
+            <div id="box8" onclick="removePlanet(this.id)"></div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var i = 0
+
+    function rotate() {
+        document.getElementById("img-earth").style.transform = "rotate(" + i + "deg)";
+        i++;
+    }
+
+    setInterval(rotate, 20);
+
+    var planetNumber = 8;
+
+    function removePlanet(id) {
+
+        let planetSelected = document.getElementById(id);
+        planetSelected.parentNode.removeChild(planetSelected);
+        planetNumber--;
+
+        let planetNumberId = document.getElementById("planetNumber");
+        planetNumberId.innerHTML = planetNumber;
+
+        //if(planetNumber === 0) {
+
+    }
+
+    var t = 0;
+
+    function timer() {
+
+        var x = setInterval(function () {
+            document.getElementById('time').innerHTML = t + " s";
+            t += 1; // ili slicno tome sa +1 brojac...
+            if (planetNumber === 0) {
+                clearInterval(x);
+                let newGame = confirm(`✔️JOB DONE IN ${t-2} seconds!✔️ NEW GAME?`);
+                if (newGame === true) {
+                    window.location.reload();
+
+                }
+
+            }
+        }, 1000);
+    }
+
+
+
+
+    window.onload = function () {
+
+        timer();
+
+        var pos1 = 0
+        var box1 = document.getElementById('box1');
+        //box1.addEventListener("click", removePlanet(this.id));
+        var t1 = setInterval(move1, 20);
+
+        function move1() {
+
+            pos1 += Math.PI / 420;
+            box1.style.left = Math.sin(pos1) * 275 + 48 + 'px';
+            box1.style.top = -Math.cos(pos1) * 75 + 48 + 'px';
+
+        }
+
+
+        var pos2 = 5;
+        var box2 = document.getElementById('box2');
+        var t2 = setInterval(move2, 20);
+
+        function move2() {
+
+            pos2 += Math.PI / 380;
+            box2.style.left = Math.sin(pos2) * 300 + 40 + 'px';
+            box2.style.top = -Math.cos(pos2) * 100 + 40 + 'px';
+
+        }
+
+        var pos3 = 2;
+        var box3 = document.getElementById('box3');
+        var t3 = setInterval(move3, 20);
+
+        function move3() {
+
+            pos3 += Math.PI / 500;
+            box3.style.left = Math.sin(pos3) * 330 + 41 + 'px';
+            box3.style.top = -Math.cos(pos3) * 130 + 41 + 'px';
+
+        }
+
+        var pos4 = 4;
+        var box4 = document.getElementById('box4');
+        var t4 = setInterval(move4, 20);
+
+        function move4() {
+
+            pos4 += Math.PI / 450;
+            box4.style.left = Math.sin(pos4) * 360 + 45 + 'px';
+            box4.style.top = -Math.cos(pos4) * 160 + 45 + 'px';
+
+        }
+
+
+        var pos5 = 3;
+        var box5 = document.getElementById('box5');
+        var t5 = setInterval(move5, 20);
+
+        function move5() {
+
+            pos5 += Math.PI / 360;
+            box5.style.left = Math.sin(pos5) * 410 + 25 + 'px';
+            box5.style.top = -Math.cos(pos5) * 210 + 25 + 'px';
+
+        }
+
+        var pos6 = 2.5;
+        var box6 = document.getElementById('box6');
+        var t6 = setInterval(move6, 20);
+
+        function move6() {
+
+            pos6 += Math.PI / 290;
+            box6.style.left = Math.sin(pos6) * 560 + 30 + 'px';
+            box6.style.top = -Math.cos(pos6) * 260 + 30 + 'px';
+
+        }
+
+        var pos7 = 1.5;
+        var box7 = document.getElementById('box7');
+        var t7 = setInterval(move7, 20);
+
+        function move7() {
+
+            pos7 += Math.PI / 440;
+            box7.style.left = Math.sin(pos7) * 500 + 35 + 'px';
+            box7.style.top = -Math.cos(pos7) * 300 + 35 + 'px';
+
+        }
+
+        var pos8 = 1.5;
+        var box8 = document.getElementById('box8');
+        var t8 = setInterval(move8, 20);
+        function move8() {
+
+            pos8 += Math.PI / 350;
+            box8.style.left = Math.sin(pos8) * 540 + 36 + 'px';
+            box8.style.top = -Math.cos(pos8) * 340 + 36 + 'px';
+
+        }
+
+    };
+
+
+
+
+</script>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- Links for: 
+        - css
+        - Google Fonts
+        - Font Awesome 
+    -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="main-content">
+    <!--
+        ***************************************************
+        *************************************************** 
+        HEADER Section - START
+            - Header left section - h-shape and image
+            - Header left section - Name in h1, description and download CV button
+        ***************************************************
+        ***************************************************
+    -->
+    <header class="section sec1 header active" id="home">
+        <div class="header-content">
+            <!-- Header left section - h-shape and image -->
+            <div class="left-header">
+                <din class="h-shape"></din>
+                <div class="image">
+                    <img src="img/i.jpg" alt="">
+                </div>
+            </div>
+            <!-- Header left section - Name in h1, description and download CV button-->
+            <div class="right-header">
+                <h1 class="name">
+                    Hi, I'm <span>Sasha Djekic.</span>
+                    
+                </h1>
+                <p>Welcome to the website that presents my portfolio regarding programming, with the skills 
+                    I possess and a list of projects / programs I have worked on.
+                </p>
+                <div class="btn-con">
+                    <a href="download/Sasha Djekic  cv22 v1.pdf" class="main-btn" download="">
+                        <span class="btn-text">Download CV</span>
+                        <span class="btn-icon"><i class="fas fa-download"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 
+        ***************************************************
+        HEADER Section - END 
+        ***************************************************
+    -->
+    
+    <main>
+        <!--
+        ***************************************************
+        *************************************************** 
+        ABOUT Section - START
+            - Left About Section - title, description, download CV button
+            - Right About Section - Cards with infos about projects etc.
+            - Bellow about section with Stats - progress bars
+            - Below about section with timeline - list of work
+        ***************************************************
+        ***************************************************
+        -->
+        <section class="section sec2" id="about">
+
+            <div class="main-title">
+                <!-- Iza About Me se nalazi My Stats -->
+                <h2>About <span>me</span><span class="bg-text">stats</span></h2>
+            </div>
+            <div class="about-container">
+                <!-- Left About Section - title, description, download CV button -->
+                <div class="left-about">
+                    <h4>Information About Me</h4>
+                    <p>
+                        Starting with the Python programming language that I learned on my own, and through the 
+                        knowledge I gained in training in PHP, Java Script, SQL and others, I am dedicated to 
+                        expanding my knowledge and skills in the field of programming to move into the IT field 
+                        and do the job I want. In addition to programming as such, I am very interested in 
+                        the field of Data Science in which the Python programming language excels with its 
+                        known modules.
+                    </p>
+                    <div class="btn-con">
+                        <a href="download/Sasha Djekic  cv22 v1.pdf" class="main-btn" download>
+                            <span class="btn-text">Download CV</span>
+                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right About Section - Cards with infos about projects etc. -->
+                <div class="right-about">
+                    <div class="about-item">
+                        <!-- Card with 2 paragrafs -->
+                        <div class="abt-text">
+                            <p class="large-text">2</p>
+                            <p class="small-text">Team Projects <br> Completed</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="abt-text">
+                            <p class="large-text">3+</p>
+                            <p class="small-text">Years of <br> Experience</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="abt-text">
+                            <p class="large-text">10+</p>
+                            <p class="small-text">Other <br> Projects</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="abt-text">
+                            <p class="large-text">2</p>
+                            <p class="small-text">Trainings <br> and many more courses...</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <!-- Bellow about section with stats - progress bars -->
+            <div class="about-stats">
+                <h4 class="stat-title">My Skills</h4>
+                <div class="progress-bars">
+                    <!-- Svaki progres bar ima posebnu klasu u span elementu koji ima pseudo el sa width koji je u tekstu -->
+                    <div class="progress-bar">
+                        <p class="prog-title">html5</p>
+                        <div class="progress-con">
+                            <p class="prog-text">80%+</p>
+                            <!-- Progress bar itself... -->
+                            <div class="progress">
+                                <span class="html"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <p class="prog-title">css3</p>
+                        <div class="progress-con">
+                            <p class="prog-text">70%+</p>
+                            <div class="progress">
+                                <span class="css"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <p class="prog-title">java script</p>
+                        <div class="progress-con">
+                            <p class="prog-text">60%+</p>
+                            <div class="progress">
+                                <span class="js"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <p class="prog-title">php</p>
+                        <div class="progress-con">
+                            <p class="prog-text">50%+</p>
+                            <div class="progress">
+                                <span class="php"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <p class="prog-title">python</p>
+                        <div class="progress-con">
+                            <p class="prog-text">60%+</p>
+                            <div class="progress">
+                                <span class="python"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <p class="prog-title">sql</p>
+                        <div class="progress-con">
+                            <p class="prog-text">50%+</p>
+                            <div class="progress">
+                                <span class="sql"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Typescript, SASS, Angular, Git/GitLab, REST/SOAP</p>
+                </div>
+            </div>
+
+            <!-- Below about section with timeline - list of work -->
+            <h4 class="stat-title">My Timeline</h4>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <!-- Work item - aws icon, date, title, description -->
+                    <div class="tl-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <p class="tl-duration">2021</p>
+                    <h5>IT retraining JavaScript <span> - <a href="download/sertifikat-ftn-javascript.pdf">certificate</a>             
+                     and <a href="download/pohvalnica-ftn-javascript.pdf">praise</a></span></h5>
+                    <p>
+                        University of Kragujevac - School of Technical Sciences
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <p class="tl-duration">2019</p>
+                    <h5>PHP web development <span> - <a href="download/ETF PHP.jpg">certificate</a></span></h5>
+                    <p>
+                        University of Belgrade - School of Electrical Engineering
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+        <!--
+        *************************************************** 
+        ABOUT Section - END 
+        ***************************************************
+        -->
+
+        <!--
+        ***************************************************
+        *************************************************** 
+        PORTFOLIO Section - START
+            - portfolios - projects - Image, Hover item (Project name, Aws Icons-links)
+        ***************************************************
+        ***************************************************
+        -->
+        <section class="section sec3" id="portfolio">
+            <div class="main-title">
+                <!-- Iza About Me se nalazi My Stats -->
+                <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
+            </div>
+            <p class="port-text">
+                Here is some of my work I've done in various programming languages.
+            </p>
+
+            <div class="portfolios">
+                <!-- Portfolio item - projects - Image, Hover item (Project name, Aws Icons-links) -->
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/portal.jpg" alt="">
+                    </div>
+                   
+                    <div class="blog">
+                        <!-- <img src="img/index-pozadina.jpg" alt=""> -->
+                        <div class="blog-text">
+                            <h4>
+                                PORTAL KARIJERA
+                            </h4>
+                            <p>
+                                final project at PHP training for IT retraining
+                            </p>
+                            <p> PHP/Codeigniter/MySQL</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="https://karijera-portal.link.in.rs/" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/avis login.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                AVis
+                            </h4>
+                            <p>
+                                AVcom Information system
+                            </p>
+                            <p> PHP/Codeigniter/MySQL</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="avis.html" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/lepote timoka.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                The beaty of Timok
+                            </h4>
+                            <p>
+                                final project on JavaScript training
+                            </p>
+                            <p> JavaScript/CSS/HTML/Bootstrap/Node.js</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="https://lepote-timoka.netlify.app/" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/busplus.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Bus plus check 
+                            </h4>
+                            <p>
+                                Check if the address is in zone 1 of Bus Plus
+                            </p>
+                            <p> JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="https://busplus-provera-zona.netlify.app" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/todo app.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                TO-DO app 
+                            </h4>
+                            <p>
+                                Task manipulation app
+                            </p>
+                            <p> JavaScript/CSS/HTML/Bootstrap</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="todo-app.html" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/flex sim2.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                CSS FLEX simulator 
+                            </h4>
+                            <p>
+                                Simulator CSS FLEX layout for container and item elements
+                            </p>
+                            <p> JavaScript/CSS/HTML</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="flex-simulator3.html" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/planet chaser.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Game - Planet Chaser 
+                            </h4>
+                            <p>
+                                Remove all the planets as soon as possible
+                            </p>
+                            <p> JavaScript/CSS/HTML/Bootstrap</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="planet-chaser-game.html" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/modni studio.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Modni studio 
+                            </h4>
+                            <p>
+                                Homepage of Modni studio with several sections
+                            </p>
+                            <p> HTML/CSS</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="https://szfr-studio.netlify.app" target="_blank" class="icon">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/xls-csv konv.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                XLSX to CSV converter
+                            </h4>
+                            <p>
+                                conversion of XLSX file to CSV format for entry in ASW: ERP
+                            </p>
+                            <p> Python/openpyxl, csv, tkinter</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="video/multi-konverter.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/kalk nabavke.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Procurement calculator
+                            </h4>
+                            <p>
+                                proposal for procurement of items based on data from material cards from ASV: ERP (two variants of presentation)
+                            </p>
+                            <p> Python/openpyxl, matplotlib, tkinter</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="video/kalkulator-nabavke-py.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                            <a href="video/kalkulator-nabavke-excel.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/pregled-treb.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Subcontractor Requirements Overview
+                            </h4>
+                            <p>
+                                presentation of requirements per item based on XSLX requirements
+                            </p>
+                            <p> Python/openpyxl, tkinter</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="video/pregled-trebovanja.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/lager-pri-nabavci.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Procurement stock
+                            </h4>
+                            <p>
+                                extraction of quantities from the stock list into the order form for review
+                            </p>
+                            <p> Python/openpyxl, tkinter</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="video/lager-pri-nabavci.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/raspored-artikala.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Visual arrangement of items
+                            </h4>
+                            <p>
+                                Visual arrangement of items in XLSX according to pallet locations based on 
+                                the table from the order in PDF format
+                            </p>
+                            <p> Python/openpyxl, tkinter, tabula</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <h3>Project Source</h3>
+                        <div class="icons">
+                            <a href="video/lager-pri-nabavci.mp4" target="_blank" class="icon">
+                                <i class="fas fa-video"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/baza-ins.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Instruments database
+                            </h4>
+                            <p>
+                                Database of indebted instruments of employees
+                            </p>
+                            <p> Python/pickle</p>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="img/py-fin.jpg" alt="">
+                    </div>
+                    <div class="blog">
+                        <div class="blog-text">
+                            <h4>
+                                Py fin calculator 
+                            </h4>
+                            <p>
+                                Credit and savings calculator
+                            </p>
+                            <p> Python/numpy_financial</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+        </section>
+        <!--
+        *************************************************** 
+        PORTFOLIO Section - End
+        ***************************************************
+        -->
+
+       
+
+
+
+
+        <!--
+        ***************************************************
+        *************************************************** 
+        Contact Section - START
+            - Left contact section - contact info - contact item (Aws icon, item name, info)
+                                   - Contact icons - websites
+            - Right Contact Section - Form
+        ***************************************************
+        ***************************************************
+        -->
+        <section class="section sec5 contact" id="contact">
+            <div class="contact-container">
+                <div class="main-title">
+                    <h2>Contact <span>Me</span><span class="bg-text">For Info</span></h2>
+                </div>
+
+                <div class="contact-content-con">
+                    <!-- Left contact section -->
+                    <div class="left-contact">
+                        <h4>Contact details and links</h4>
+                        <p>
+                            
+                        </p>
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <!-- Contact item - Aws icon, item name, info -->
+                            <div class="contact-item">
+                                <div class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location</span>
+                                </div>
+                                <p>
+                                    : Belgrade, Serbia
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </div>
+                                <p>
+                                    : djeka78@gmail.com
+                                </p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Mobile Number</span>
+                                </div>
+                                <p>
+                                    : +381638335577
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon">
+                                    <i class="fas fa-globe-europe"></i>
+                                    <span>Languages</span>
+                                </div>
+                                <p>
+                                    : English, Russian
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Contact icons - websites -->
+                        <div class="contact-icons">
+                            <div class="contact-icon">
+                                <a href="https://www.linkedin.com/in/sasha-djekic-835a1028/" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                
+                                <a href="https://www.sololearn.com/Profile/1230497" target="_blank">
+                                    <i class="fab fa-speakap"></i>
+                                </a>
+
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+            
+        </section>
+        <!--
+        *************************************************** 
+        Contact Section - End
+        ***************************************************
+        -->
+    </main>
+
+
+    <!-- Side Buttons for sections START -->
+    <div class="controls">
+        <div class="control control-1 active-btn" data-id="home">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="control control-2 " data-id="about">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="control control-3 " data-id="portfolio">
+            <i class="fas fa-briefcase"></i>
+        </div>
+        <!-- <div class="control control-4 " data-id="blogs">
+            <i class="fas fa-newspaper"></i>
+        </div> -->
+        <!-- atribut data (dataset) je bitan zbog veza sa gornjim sekcija i konektovanja preko javascripta -->
+        <div class="control control-5 " data-id="contact">
+            <i class="fas fa-envelope-open"></i>
+        </div>
+    </div>
+    <!-- Side Buttons for sections END -->
+
+    <!-- Theme toggle button -->
+    <div class="theme-btn">
+        <i class="fas fa-adjust"></i>
+    </div>
+
+
+</body>
+
+
+
+
+<script src='app.js'></script>
+
+
+
+</html>

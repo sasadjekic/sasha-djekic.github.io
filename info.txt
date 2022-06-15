@@ -1,0 +1,52 @@
+https://www.freecodecamp.org/news/create-a-portfolio-website-using-html-css-javascript/
+Trenutno: 3:14:00
+
+Shortcuts:
+Comments : Ctrl+K+C/Ctrl+K+U
+Delete Row: Shift+Del
+Pokretanje: Ctrl + 1
+Selekcija linije: Ctrl + L (drugo L dodaje donju liniju itd.)
+Multi selection: Ctrl + D 
+Replace: Ctrl + H
+Prebacivanje izmedju fajlova: ALT + 1,2,3...
+Vise redova po nekom pravilu: .control.control-$.active-btn * 5
+(control-$ - varijabilno menjanje broja na mestu $ sa multiplikatorom: * 5)
+Meni: ALT + Font
+Insert Line above: CTRL + SHIFT + Enter
+
+Spisak alata za CSS, JS...
+
+VIDEO content:
+15:30 - Css Buttons
+
+-Pokretanje: Desni klik - Open with live Server
+-Font - Poppins (google)
+- Fontawesome - link preko CDN-a - (fontawser cdn) https://cdnjs.com/libraries/font-awesome
+
+Umesto CSS-a koristimo Sass i instaliramo dve ekstenzije - Sass i Live Sass Compiler (real time kompajliranje)
+(U donjem delu ekrana cuci Watching opcija koja omogucava ON/OFF auto kompajliranja)
+plus jos dve HTML snippets i HTML CSS Support
+
+(obratiti paznju na ekstenziju scss fajla - jer ne rade ekstenzije Sass i Live tj onda ne kompajliraju scss u css!)
+
+Event delegation - tehnika za dodeljivanje event lisenera parent elementu radi ustede resursa 
+https://www.webprogramiranje.org/dogadjaji-u-javascript-u/
+
+Data atribut - dataset - povezivanje sekcija sa butonima
+
+clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+//U prevodu: prikazuje deo koji se vidi od elementa i moze imati razne oblike!
+Google: click-path generator - https://bennettfeely.com/clippy/ - za crtanje i gotov kod!
+
+//Podesava pokrivanje slike u elementu (contain i dr.)
+object-fit: cover;
+
+Filter siva npr pa onda preko :hover - potiranje filtera
+ filter: grayscale(100%); - do 0
+
+Uklanjanje pozadine slika tako da ne budu cetvrtaste sto u kombinaciji sa pozadinom daje lep efekat
+ https://www.remove.bg/upload
+
+ Web Dev Console - moze se igrati sa vrednostima elemenata i odmah videti efekat (kursori po jedan ili strelica l-d)
+
+Poenta je da se smanji ekran na recimo ispod 600px npr i da gleda sta se preklapa i u WDC-u vrse probne korekcije
